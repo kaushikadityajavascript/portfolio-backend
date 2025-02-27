@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+require("dotenv").config();
 
 const nodemailer = require("nodemailer");
 
@@ -9,8 +10,8 @@ router.post("/contact", async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "kaushikaditya90@gmail.com",
-      pass: "hpde labw prxp eiar",
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
